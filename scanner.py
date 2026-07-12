@@ -9,7 +9,7 @@ def is_port_open(target, port):
         sock.settimeout(0.5)
         result = sock.connect_ex((target,port))
     
-    except Exception as e:
+    except OSError as e:
         print(f"Error opening socket: {e}")
         return None
     
@@ -23,3 +23,17 @@ def ports_scanner(target, ports):
     open_ports = []
     
     with ThreadPoolExecutor(max_workers=100) as executor:
+        futures = {}
+        
+        for port in ports:
+            future = executor.submit(is_port_open, target, port)
+            futures[future] = port
+        
+        for future in as_completed(futures):
+            if future.result():
+                port = futures[future]
+                open_ports.append(port)
+    
+    return sorted(open_ports)
+                
+        
