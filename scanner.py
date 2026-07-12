@@ -1,5 +1,4 @@
 import socket
-import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 def is_port_open(target, port):
