@@ -1,9 +1,10 @@
+from reports import save_scan_results
 from scanner import ports_scanner
 from scan_modes import get_full_scan, get_quick_scan, get_custom_scan
 from validators import validate_ip, validate_port, validate_port_range
 from services import get_service_name
 
-choice = int(input("Chose scan mode:\n [1] - Quick Scan(1 - 1024)\n [2] - Full Scan(1 - 65535)\n [3] - Custom Scan\n [4] - EXIT"))
+choice = int(input("Chose scan mode:\n [1] - Quick Scan(1 - 1024)\n [2] - Full Scan(1 - 65535)\n [3] - Custom Scan\n [4] - EXIT\n Enter your choice number: "))
 
 match choice:
     case 1:
@@ -55,4 +56,6 @@ for port in open_port_numbers:
     })
 
     print(f"Port {port} is OPEN on Service {service}")
+
+save_scan_results(ip, open_ports)
 
