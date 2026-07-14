@@ -1,0 +1,22 @@
+{
+    "ip": "192.168.7.8",
+    "scan_time": "2026-07-14 15:03:09",
+    "open_ports": [
+        {
+            "port": 49152,
+            "service": "unknown"
+        },
+        {
+            "port": 55949,
+            "service": "unknown"
+        },
+        {
+            "port": 62078,
+            "service": "unknown"
+        },
+        {
+            "port": 62742,
+            "service": "unknown"
+        }
+    ]
+}
